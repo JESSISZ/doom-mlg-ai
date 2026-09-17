@@ -16,3 +16,29 @@ To train the model I needed a lot of images, that's why I made a [game capture c
 ##### Training the YOLO model.
 
 Training the YOLO model was probably one of the most boring things I will do in this project, I took almost 1 hour of labeling monsters, at the end I took ~300 captures which was a lot, at least for me.
+
+![Image](./assets/Screenshot%202026-09-15%20at%207.06.35 p.m..png)
+
+> [!Note]
+> If you have the chance to call a friend to help you with the boxing of the enemies, take it.
+
+To make sure the model did well I trained it on roboflow infrastructure, but hell nah, that's over 60 bucks to export the weights I will do it myself tomorrow.
+
+#### 17 September 2026
+
+Okay today I'm going to be doing the training the YOLO model.
+
+The work is going to be documented at the [YOLO Training Notebook](../YOLOMODEL/YOLO_training.ipynb).
+>[!IMPORTANT]
+> I used an Apple Silicon Chip to train the model if you're using an Nvidia GPU comment the kwarg **device** on the 3rd code block
+
+Once trained the model the results were the following:
+
+<p align="center">
+      <img src="./assets/run/confusion_matrix.png" width="48%" alt="Confusion Matrix" />
+      <img src="./assets/run/BoxP_curve.png" width="48%" alt="Precision Curve" />
+</p>
+
+![Image](./assets/run/train_batch282.jpg)
+
+The model itself is not perfect but will work perfectly fine in our Doom MLG AI.
