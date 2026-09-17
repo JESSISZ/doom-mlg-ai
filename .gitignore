@@ -1,3 +1,7 @@
 venv
 _vizdoom.ini
 captures
+/YOLOMODEL/.env
+/YOLOMODEL/Doom-Enemy-Classifier-1
+/YOLOMODEL/yolo11n.pt
+/runs
