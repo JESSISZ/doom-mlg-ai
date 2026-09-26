@@ -1,6 +1,7 @@
 venv
 _vizdoom.ini
 captures
+*__pycache__
 /YOLOMODEL/.env
 /YOLOMODEL/Doom-Enemy-Classifier-1
 /YOLOMODEL/yolo11n.pt
