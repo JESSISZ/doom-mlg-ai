@@ -33,7 +33,6 @@ The work is going to be documented at the [YOLO Training Notebook](../YOLOMODEL/
 > I used an Apple Silicon Chip to train the model if you're using an Nvidia GPU comment the kwarg **device** on the 3rd code block
 
 Once trained the model the results were the following:
-
 <p align="center">
       <img src="./assets/run/confusion_matrix.png" width="48%" alt="Confusion Matrix" />
       <img src="./assets/run/BoxP_curve.png" width="48%" alt="Precision Curve" />
@@ -42,3 +41,42 @@ Once trained the model the results were the following:
 ![Image](./assets/run/train_batch282.jpg)
 
 The model itself is not perfect but will work perfectly fine in our Doom MLG AI.
+
+#### 23 September 2026
+
+##### It's been a while, this day was meant to know how was the model prediction doing and then implement the aimbot.
+
+My reasoning was the following, YOLO predictions will provide a box, but it's not an explicit box, to draw a box is necesary only to know 2 points, x1 & y1, which is going to be a corner, and x2 & y2 which is going to be the diagonal corner, with this, we will know where the enemy is located.
+
+More importantly, in Doom you can't look upwards, just sideways, so to hit a target it's only necessary that the monster is at the middle of your screen, doom will consider for you the vertical shooting.
+While thinking about the case of having multiple enemies at a time in the screen, I thought about multiple solutions and finally decided the best approach, honestly, the model can miss classify, this miss classification are more prone to happen if the object is further away from the screen, so I will define a variable that collects the biggest box and a little smoothing factor that will also consider how far is the enemy from the middle of the screen.
+
+The formula will be the following:
+
+$$ BoxArea = |x_1 - x_2| * |y_1 - y_2|$$
+
+$$ Score = max( rectangleArea / ( distance + smoothingFactor )) $$
+
+Simple, isn't?
+
+---
+After reading carefully the documentation, Vizdom uses a FOV (Field Of View) of 90°.
+#### What does this mean?
+
+Imagine you have a screen of 90px * 1px and a FOV of 90°, this means, each pixel represents a grade, if you're looking at the 1st pixel and you want to look at the 5th pixel, you hace to move your camera 4 grades, this will be escalated to the resolution we're using.
+
+In this case we're using a resolution of 640 * 480 and the proportion of grades per pixel is going to be only the division of the FOV between the width.
+
+##### Results of the day:
+
+On god, the model works perfectly fine, there's just one problem, Vizdoom only allows you to make actions if you're in the Mode : Player, sadly the movement is very bad if you do it based on key inputs, but the model is able to track the enemy with almost milimetrical accuracy.
+
+And there's this one error where the model detects the face of the marine as a Hatcling, I'll take care of this later.
+![IMAGE](https://github.com/user-attachments/assets/907532e0-9e55-4fae-a8b0-807233150716)    
+
+
+
+
+
+
+
