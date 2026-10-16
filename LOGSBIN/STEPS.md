@@ -74,6 +74,12 @@ On god, the model works perfectly fine, there's just one problem, Vizdoom only a
 And there's this one error where the model detects the face of the marine as a Hatcling, I'll take care of this later.
 ![IMAGE](https://github.com/user-attachments/assets/907532e0-9e55-4fae-a8b0-807233150716)    
 
+#### 15 October 2026
+
+It's been a while again, what I'm planning to do today is to implement Deep Q-Learning using beam tracing, as the graphics cards do to render, meh, kinda.
+
+What I thought about was to trow N number of beams to detect walls, this way the model it's going to know its position over the map.
+
 
 
 

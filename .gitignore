@@ -6,3 +6,4 @@ captures
 /YOLOMODEL/Doom-Enemy-Classifier-1
 /YOLOMODEL/yolo11n.pt
 /runs
+.DS_Store
