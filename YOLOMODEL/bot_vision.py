@@ -140,19 +140,19 @@ while not game.is_episode_finished():
     if key == ord('c'):
         break
 
-    # Uncomment this actions only if you want to try the Aimbot
-    # actions = {
+    # Uncomment moving and turn (Not DELTA) actions only if you want to try moving while AIMBOTING
+    actions = {
     #         Button.MOVE_FORWARD: 1.0 if key == ord('w') else 0.0,
     #         Button.MOVE_BACKWARD: 1.0 if key == ord('s') else 0.0,
     #         Button.MOVE_LEFT: 1.0 if key == ord('a') else 0.0,
     #         Button.MOVE_RIGHT: 1.0 if key == ord('d') else 0.0,
     #         Button.TURN_RIGHT: 1.0 if key == ord('e') else 0.0,
     #         Button.TURN_LEFT: 1.0 if key == ord('q') else 0.0,
-    #         Button.TURN_LEFT_RIGHT_DELTA: turn,
-    #         Button.ATTACK: attack
-    #     }
-    # game.make_action([actions.get(b, 0.0) for b in game.get_available_buttons()])
-
+            Button.TURN_LEFT_RIGHT_DELTA: turn,
+            Button.ATTACK: attack
+        }
+    game.make_action([actions.get(b, 0.0) for b in game.get_available_buttons()])
+    
 game.close()
 cv2.destroyAllWindows()
 
